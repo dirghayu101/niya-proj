@@ -1,0 +1,42 @@
+@import url('https://fonts.googleapis.com/css2/poppins/v20/pxiEyp8kv8JHgFVrJJbecmNE.woff2');
+#contact-us {
+  background-color: #f9f9f9;
+  padding: 10px 0;
+}
+
+.form-group1 {
+  margin-bottom: 40px;
+  align-items: center;
+}
+
+label {
+  display: block;
+  margin-bottom: 50px;
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: 16px;
+  resize: none;
+}
+
+button[type="submit"] {
+  background-color: #30071f;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease-in-out;
+}
+
+button[type="submit"]:hover {
+  background-color: #3e8e41;
+}

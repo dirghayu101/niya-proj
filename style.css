@@ -1,0 +1,507 @@
+@import url("https://fonts.googleapis.com/css2/poppins/v20/pxiEyp8kv8JHgFVrJJbecmNE.woff2");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Lora";
+}
+
+#categoryBtn {
+  border-radius: 50%;
+  color: grey;
+}
+
+#categoryBtn:hover {
+  cursor: pointer;
+}
+
+.categoryBtnRotate {
+  animation: rotate 0.4s ease-in-out;
+  animation-fill-mode: forwards;
+}
+
+.categoryBtnRotateBack {
+  animation: rotateBack 0.4s ease-in-out;
+  animation-fill-mode: forwards;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(90deg);
+  }
+}
+
+@keyframes rotateBack {
+  0% {
+    transform: rotate(90deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 20px 75px;
+  background-color: rgb(0, 0, 0);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 99px;
+}
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: url("pexels-burak-the-weekender-132340.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+/* serach bar */
+.logo {
+  font-size: 2em;
+  color: #fff;
+  user-select: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+input[type="text"] {
+  padding: 10px;
+  border: none;
+  border-radius: 15px;
+  margin-right: 5px;
+  width: 300px;
+}
+
+button[type="submit"] {
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #4caf50;
+  color: white;
+  cursor: pointer;
+  width: 90px;
+}
+
+.navigation a {
+  position: relative;
+  font-size: 1.1em;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  margin-left: 40px;
+}
+
+.navigation a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 100%;
+  height: 3px;
+  background: #fff;
+  border-radius: 8px;
+  transform-origin: right;
+  transform: scaleX(0);
+  transition: transform.5s;
+}
+
+.navigation a:hover::after {
+  transform-origin: left;
+  transform: scaleX(1);
+}
+
+.navigation .btnLogin-popup {
+  width: 130px;
+  height: 50px;
+  background: transparent;
+  border: 2px solid #fff;
+  outline: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1.1em;
+  color: #fff;
+  font-weight: 500;
+  margin-left: 40px;
+  transition: 0.5s;
+}
+
+.navigation .btnLogin-popup:hover {
+  background: #fff;
+  color: #162938;
+}
+
+.wrapper {
+  position: relative;
+  width: 400px;
+  height: 440px;
+  background: transperent;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  border-radius: 20px;
+  backdrop-filter: blur(20px);
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  transform: scale(0);
+  transition: transform 0.5s ease, height 0.2s ease;
+  top: 80%;
+}
+
+.wrapper.active-popup {
+  position: absolute;
+  top: 150px;
+  transform: scale(1);
+}
+
+.wrapper.active {
+  height: 460px;
+  margin-bottom: 5px;
+}
+
+.wrapper.form-box {
+  width: 100px;
+  padding: 40px;
+}
+
+.wrapper .form-box.login {
+  transition: transform 0.18s ease;
+  transform: translateX(0);
+}
+
+.wrapper.active .form-box.login {
+  transition: none;
+  transform: translateX(-400px);
+}
+
+.wrapper .form-box.register {
+  position: absolute;
+  transition: none;
+  transform: translateX(400px);
+}
+
+.wrapper.active .form-box.register {
+  transition: transform 0.18s ease;
+  transform: translateX(0);
+  height: 400px;
+}
+
+.wrapper .icon-close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 45px;
+  height: 45px;
+  background: #162938;
+  font-size: 2em;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom-left-radius: 20px;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.form-box h2 {
+  font-size: 2em;
+  color: #162938;
+  text-align: center;
+}
+
+.input-box {
+  position: relative;
+  width: 100%;
+  height: 50px;
+  border-bottom: 2px solid #162938;
+  margin: 30px 0;
+}
+
+.input-box label {
+  position: absolute;
+  top: 50%;
+  left: 5px;
+  transform: translateY(-50%);
+  font-size: 1em;
+  color: #162938;
+  font-weight: 500;
+  pointer-events: none;
+  transition: 0.5s;
+}
+
+.input-box input:focus ~ label,
+.input-box input:focus ~ label {
+  top: -5px;
+}
+
+.input-box input {
+  width: 100%;
+  height: 100%;
+  background: transperent;
+  border: none;
+  outline: none;
+  font-size: 1em;
+  color: #162938;
+  font-weight: 600;
+  padding: 0 35px 0 5px;
+}
+
+.input-box .icon {
+  position: absolute;
+  right: 8px;
+  font-size: 1.2em;
+  color: #162938;
+  line-height: 57px;
+}
+
+.remember-forgot {
+  font-size: 0.9em;
+  color: #162938;
+  font-weight: 500;
+  margin: -15px 0 15px;
+  display: flex;
+  justify-content: space-between;
+  text-decoration: none;
+}
+
+.remember-forget label input {
+  accent-color: #162938;
+  margin-right: 3px;
+}
+
+.remember-forgot a {
+  color: #162938;
+}
+
+.remember-forget a:hover {
+  text-decoration: underline;
+  font-size: 20px;
+}
+
+.btn {
+  width: 100%;
+  height: 45px;
+  background: #162938;
+  border: none;
+  outline: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1em;
+  color: #fff;
+  font-weight: 500;
+}
+
+.login-register {
+  font-size: 0.9;
+  color: #162938;
+  text-align: center;
+  font-weight: 500;
+  margin: 25px 0 10px;
+}
+
+.login-register p a {
+  color: #162938;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.login-register p a:hover {
+  text-decoration: underline;
+}
+
+/* forgot password */
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.forgotpassword {
+  display: flex;
+  height: 98vh;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  font-family: cursive;
+}
+
+.forgotpassword h2 {
+  font-size: 50px;
+  font-family: cursive;
+  color: rgb(12, 10, 10);
+}
+
+input type {
+  background-color: aqua;
+  font-size: 30px;
+  font-weight: bolder;
+}
+
+.forgotpassword a:hover {
+  text-decoration: underline;
+}
+
+.forgotpassword .form-wrap {
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  background: transparent;
+  backdrop-filter: blur(20px);
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+  width: 40%;
+  padding: 15px 20px;
+}
+
+.forgotpassword .form-wrap h2 {
+  text-align: center;
+  margin: 0px 0px 20px;
+  font-size: 19px;
+}
+
+.forgotpassowrd .form-wrap .form-box {
+  margin: 0px 0px 15px;
+}
+
+.forgotpassword .form-wrap .form-box input[type="text"] {
+  padding: 5px 8px;
+  border-radius: 3px;
+  border: 1px solid #353535;
+  width: 100%;
+}
+
+.forgotpassword .form-wrap .form-submit {
+  display: flex;
+  justify-content: center;
+}
+
+.forgotpassword .form-wrap .form-submit input[type="submit"] {
+  padding: 4px 10px;
+  border: none;
+  border-radius: 2px;
+  background: #353535;
+  color: #fff;
+  font-weight: 800;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+/* home content */
+
+/* .home{
+    width: 5000%;
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    position: relative;
+    z-index: 0;
+    background-color: beige;
+} */
+.img {
+  flex: 1 1 300px;
+}
+
+.img img {
+  margin-top: 30px;
+  width: 100%;
+}
+
+.content {
+  flex: 1 1 400px;
+  margin-top: 20px;
+}
+
+.content h1 {
+  color: rgb(212, 214, 68);
+  font-weight: bold;
+  margin-left: 23px;
+  font-size: 55px;
+  text-shadow: -1px 1px 1px black;
+}
+
+.content h1 span {
+  color: rgb(207, 218, 56);
+  text-shadow: 1px 1px 1px black;
+}
+
+#span2 {
+  color: #ffc800;
+}
+
+.content p {
+  margin-left: 25px;
+}
+
+.btn1 {
+  margin-left: 25px;
+}
+
+.btn1 button {
+  width: 100px;
+  height: 32px;
+  letter-spacing: 4px;
+  background-color: rgb(167, 182, 80);
+  color: white;
+  border-radius: 5px;
+  border: none;
+  transition: 0.5s ease;
+  cursor: pointer;
+}
+
+.btn1 button:hover {
+  background-color: #ffc800;
+  color: black;
+  border: none;
+}
+/* product section */
+#product-cards {
+  margin-top: 100px;
+  align-items: center;
+}
+#product-cards h1 {
+  color: #ffc800;
+  text-shadow: 1px 1px 1px black;
+  border-bottom: 2px solid #ffc800;
+}
+#product-cards .card h3 {
+  font-size: 20px;
+  color: black;
+}
+#product-cards .card p {
+  font-size: 12px;
+  margin-top: 5px;
+  color: black;
+}
+.star i {
+  margin-left: 5px;
+  font-size: 13px;
+}
+.checked {
+  color: #ffc800;
+}
+#product-cards .card h2 {
+  font-size: 20px;
+  color: black;
+  margin-top: 20px;
+}
+#product-cards .card h2 span {
+  float: right;
+  color: black;
+  cursor: pointer;
+}
+@media screen and (max-width: 100px) {
+  #product-cards .card h3 {
+    font-size: 15px;
+  }
+}
