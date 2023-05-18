@@ -24,31 +24,37 @@ const categories = {
       "Type 1": {},
       "Type 2": {},
       "Type 3": {},
-      "Type 4": {
-        "Sub Type 1": {},
-        "Sub Type 2": {},
-        "Sub Type 3": {
-          "Sub sub type 1": {},
-          "Sub sub type 2": {},
-        },
-      },
     },
     "Table Lamps": {
       "Type 1": {},
       "Type 2": {},
       "Type 3": {},
     },
-    Chandeliers: {},
+    Chandeliers: {
+      "Type 1": {},
+      "Type 2": {},
+      "Type 3": {},
+    },
   },
   Geyser: {
     "Storage Geyser": {
       "An item": {},
       "Another item": {},
     },
+    "Primary Geyser": {
+      "An item": {},
+      "Another item": {},
+    },
   },
   Coolers: {
-    AC: {},
-    Normal: {},
+    AC: {
+      "An item": {},
+      "Another item": {},
+    },
+    Normal: {
+      "An item": {},
+      "Another item": {},
+    },
   },
 };
 
