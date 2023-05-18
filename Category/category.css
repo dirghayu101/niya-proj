@@ -1,0 +1,66 @@
+#categoryBtnBox {
+  border: 1px solid red;
+}
+
+#categoryBtn {
+  border-radius: 50%;
+  color: grey;
+  border: 1px solid grey;
+  padding: 4px;
+  transition: 0.4s ease;
+}
+
+#categoryBtn:hover {
+  cursor: pointer;
+}
+
+.categoryBtnRotate {
+  animation: rotate 0.4s ease-in-out;
+  animation-fill-mode: forwards;
+}
+
+.categoryBtnRotateBack {
+  animation: rotateBack 0.4s ease-in-out;
+  animation-fill-mode: forwards;
+}
+
+.categoryBox {
+  color: white;
+  display: flex;
+  position: absolute;
+  /* left: 7.2vw; */
+  top: 8.4vh;
+  flex-direction: column;
+  font-size: 1rem;
+}
+
+.categoryBox > span {
+  width: 8vw;
+  height: 4.5vh;
+  text-align: center;
+  border: 1px solid grey;
+  padding: 3px;
+}
+
+.categoryBox > span:hover {
+  cursor: pointer;
+  background-color: grey;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(90deg);
+  }
+}
+
+@keyframes rotateBack {
+  0% {
+    transform: rotate(90deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}

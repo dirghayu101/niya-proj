@@ -19,15 +19,3 @@ btnPopup.addEventListener("click", () => {
 iconClose.addEventListener("click", () => {
   wrapper.classList.remove("active-popup");
 });
-
-/*
-const categoryBtn = document.querySelector("#categoryBtnBox");
-categoryBtn.addEventListener("mouseover", () => {
-  categoryBtn.classList.add("categoryBtnRotate");
-  categoryBtn.classList.remove("categoryBtnRotateBack");
-});
-categoryBtn.addEventListener("mouseout", () => {
-  categoryBtn.classList.add("categoryBtnRotateBack");
-  categoryBtn.classList.remove("categoryBtnRotate");
-});
-*/

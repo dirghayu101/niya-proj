@@ -7,43 +7,6 @@
   font-family: "Lora";
 }
 
-#categoryBtn {
-  border-radius: 50%;
-  color: grey;
-}
-
-#categoryBtn:hover {
-  cursor: pointer;
-}
-
-.categoryBtnRotate {
-  animation: rotate 0.4s ease-in-out;
-  animation-fill-mode: forwards;
-}
-
-.categoryBtnRotateBack {
-  animation: rotateBack 0.4s ease-in-out;
-  animation-fill-mode: forwards;
-}
-
-@keyframes rotate {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(90deg);
-  }
-}
-
-@keyframes rotateBack {
-  0% {
-    transform: rotate(90deg);
-  }
-  100% {
-    transform: rotate(0deg);
-  }
-}
-
 header {
   position: fixed;
   top: 0;
