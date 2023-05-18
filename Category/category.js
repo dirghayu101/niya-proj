@@ -1,77 +1,78 @@
 import categories from "./CategoryJSON.js";
+const categoryBtn = document.querySelector("#categoryBtn");
+const categoryBtnBox = document.querySelector("#categoryBtnBox");
+const firstCatBox = document.querySelector(".firstCatBox");
+const secondCatBox = document.querySelector(".secondCatBox");
+const thirdCatBox = document.querySelector(".thirdCatBox");
+emptyBox(firstCatBox);
+populateBox(Object.keys(categories), firstCatBox);
 
-const addEventCategoryBtnBox = () => {
-  const categoryBtn = document.querySelector("#categoryBtn");
-  const categoryBtnBox = document.querySelector("#categoryBtnBox");
-  categoryBtnBox.addEventListener("mouseover", (event) => {
-    categoryBtn.classList.add("categoryBtnRotate");
-    categoryBtn.classList.remove("categoryBtnRotateBack");
-    if (categoryBtnBox.querySelector(".categoryBox") === null) {
-      putCategoryBox(Object.keys(categories), categoryBtnBox);
-    }
+categoryBtnBox.addEventListener("mouseover", (event) => {
+  categoryBtn.classList.add("categoryBtnRotate");
+  categoryBtn.classList.remove("categoryBtnRotateBack");
+  firstCatBox.classList.remove("hideProps");
+});
+
+categoryBtnBox.addEventListener("mouseleave", (event) => {
+  categoryBtn.classList.add("categoryBtnRotateBack");
+  categoryBtn.classList.remove("categoryBtnRotate");
+  hideAllBoxes();
+});
+
+firstCatBox.querySelectorAll("span").forEach((span) => {
+  addSpanListener(span);
+});
+
+function addSpanListener(span) {
+  span.addEventListener("mouseover", (event) => {
+    emptyBox(secondCatBox);
+    const itemsList = getItemValue(event.target.textContent, categories);
+    populateBox(itemsList, secondCatBox);
+    secondCatBox.classList.remove("hideProps");
   });
-
-  categoryBtnBox.addEventListener("mouseout", (event) => {
-    categoryBtn.classList.add("categoryBtnRotateBack");
-    categoryBtn.classList.remove("categoryBtnRotate");
-    // removeCategoryBoxes();
-  });
-};
-
-const addEventCategoryBox = () => {
-  const categoryItem = document.querySelectorAll(".categoryBox span");
-  categoryItem.forEach((item) => {
-    item.addEventListener("mouseover", (event) => {
-      const itemObj = getItemValue(event.target.textContent, categories);
-      console.log(Object.keys(itemObj));
-      putCategoryBox(Object.keys(itemObj));
+  console.log(secondCatBox.querySelectorAll("span"));
+  secondCatBox.querySelectorAll("span").forEach((span) => {
+    console.log("Working");
+    span.addEventListener("mouseover", (event) => {
+      emptyBox(thirdCatBox);
+      const itemsList = getItemValue(event.target.textContent, categories);
+      populateBox(itemsList, thirdCatBox);
+      thirdCatBox.classList.remove("hideProps");
     });
   });
-};
-
-addEventCategoryBtnBox();
-addEventCategoryBox();
-
-// This function will calculate the width from the left to place the div.
-function getWidth() {
-  const boxesNum = document.querySelectorAll("#categoryBtnBox .categoryBox");
-  const x = Object.keys(boxesNum).length;
-  return `${x * 8 + 7.2}vw`;
 }
 
-// This function will place the div
-function putCategoryBox(categoryArr, parent) {
-  const categoryDiv = document.createElement("div");
-  categoryDiv.className = "categoryBox";
-  //   Dynamic width generator here 7vw
-  categoryDiv.style.left = getWidth();
-  categoryArr.forEach((category) => {
-    const categorySpan = document.createElement("span");
-    categorySpan.textContent = category;
-    categoryDiv.appendChild(categorySpan);
+function populateBox(arrValue, box) {
+  arrValue.forEach((value) => {
+    const span = document.createElement("span");
+    span.textContent = value;
+    box.appendChild(span);
   });
-  parent.appendChild(categoryDiv);
-  addEventCategoryBox();
 }
 
-// This function will
-function removeCategoryBoxes() {
-  const categoryBoxes = document.querySelectorAll(".categoryBox");
-  categoryBoxes.forEach((box) => {
-    box.remove();
+function emptyBox(box) {
+  const allSpans = box.querySelectorAll("span");
+  allSpans.forEach((span) => {
+    span.remove();
   });
+}
+
+function hideAllBoxes() {
+  firstCatBox.classList.add("hideProps");
+  secondCatBox.classList.add("hideProps");
+  thirdCatBox.classList.add("hideProps");
 }
 
 function getItemValue(key, object) {
   if (key in object) {
-    return object[key];
+    return Object.keys(object[key]);
   }
 
   for (let prop in object) {
     if (typeof object[prop] === "object") {
       const result = getItemValue(key, object[prop]);
       if (result) {
-        return result;
+        return Object.keys(result);
       }
     }
   }

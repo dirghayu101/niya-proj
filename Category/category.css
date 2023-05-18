@@ -1,11 +1,13 @@
+/* NOTE: Icon styling starts here. */
 #categoryBtnBox {
-  border: 1px solid red;
+  /* border: 1px solid red; */
+  padding: 5px;
 }
 
 #categoryBtn {
+  margin-top: 18px;
   border-radius: 50%;
   color: grey;
-  border: 1px solid grey;
   padding: 4px;
   transition: 0.4s ease;
 }
@@ -23,30 +25,9 @@
   animation: rotateBack 0.4s ease-in-out;
   animation-fill-mode: forwards;
 }
+/* NOTE: Icon styling ends here. */
 
-.categoryBox {
-  color: white;
-  display: flex;
-  position: absolute;
-  /* left: 7.2vw; */
-  top: 8.4vh;
-  flex-direction: column;
-  font-size: 1rem;
-}
-
-.categoryBox > span {
-  width: 8vw;
-  height: 4.5vh;
-  text-align: center;
-  border: 1px solid grey;
-  padding: 3px;
-}
-
-.categoryBox > span:hover {
-  cursor: pointer;
-  background-color: grey;
-}
-
+/* NOTE: Rotation animation starts here. */
 @keyframes rotate {
   0% {
     transform: rotate(0deg);
@@ -64,3 +45,54 @@
     transform: rotate(0deg);
   }
 }
+/* NOTE: Rotation animation ends here. */
+
+/* NOTE: Option box styling starts here. */
+
+.hideProps {
+  visibility: hidden;
+}
+
+.firstCatBox span,
+.secondCatBox span,
+.thirdCatBox span {
+  width: 9vw;
+  height: 4.5vh;
+  border-radius: 8px;
+  text-align: center;
+  padding: 3px;
+}
+
+.firstCatBox span:hover,
+.secondCatBox span:hover,
+.thirdCatBox span:hover {
+  cursor: pointer;
+  background-color: grey;
+}
+
+.firstCatBox,
+.secondCatBox,
+.thirdCatBox {
+  border: 1px solid red;
+  height: 22vh;
+  color: white;
+  display: flex;
+  position: absolute;
+  top: 9.5vh;
+  flex-direction: column;
+  font-size: 1rem;
+  border-radius: 8px;
+}
+
+.firstCatBox {
+  left: 7.2vw;
+}
+
+.secondCatBox {
+  left: 16.2vw;
+}
+
+.thirdCatBox {
+  left: 25.2vw;
+}
+/* NOTE: Option box styling ends here. */
