@@ -1,6 +1,6 @@
 const categories = {
   Fans: {
-    "Ceiling Fans": {
+    Ceiling: {
       "Standard Ceiling Fans": {},
       "Decorative Ceiling Fans": {},
       "Under-light Ceiling Fans": {},

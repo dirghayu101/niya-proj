@@ -1,6 +1,5 @@
 /* NOTE: Icon styling starts here. */
 #categoryBtnBox {
-  /* border: 1px solid red; */
   padding: 5px;
 }
 
@@ -59,8 +58,11 @@
   width: 9vw;
   height: 4.5vh;
   border-radius: 8px;
+  margin: 0.4vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   text-align: center;
-  padding: 3px;
 }
 
 .firstCatBox span:hover,
@@ -73,8 +75,7 @@
 .firstCatBox,
 .secondCatBox,
 .thirdCatBox {
-  border: 1px solid red;
-  height: 22vh;
+  border: 1px solid rgb(127, 127, 127);
   color: white;
   display: flex;
   position: absolute;
@@ -85,14 +86,14 @@
 }
 
 .firstCatBox {
-  left: 7.2vw;
+  left: 8vw;
 }
 
 .secondCatBox {
-  left: 16.2vw;
+  left: 18vw;
 }
 
 .thirdCatBox {
-  left: 25.2vw;
+  left: 28vw;
 }
 /* NOTE: Option box styling ends here. */
